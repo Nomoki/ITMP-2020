@@ -15,6 +15,7 @@
 		<h5>แม่ก่อนหน้า -> แม่ {{before_n}}</h5>
 		<h3 v-for="i in r"
 		>{{n}} x {{i}} = {{x(i)}}</h3>
+		<h3>ผลรวม {{sum(row)}}</h3>
 	</div>
 
 	<script>
@@ -29,36 +30,19 @@
 			methods:{
 				x: function(row){
 					return this.n*row
+				},
+				sum: function(row){
+					a = 0
+					for (var i = 1; i <= row; i++) {
+						a += (this.n * i)
+					}
+					return a
 				}
 			},
 			computed: {
 				r: function(){
 					return parseInt(this.row)
 				},
-				x2: function(){
-					return this.n*2
-				},
-				x3: function(){
-					return this.n*3
-				},
-				x4: function(){
-					return this.n*4
-				},
-				x5: function(){
-					return this.n*5
-				},
-				x6: function(){
-					return this.n*6
-				},
-				x7: function(){
-					return this.n*7
-				},
-				x8: function(){
-					return this.n*8
-				},
-				x9: function(){
-					return this.n*9				
-				}
 			},
 		watch: {
 			n: function(a,b){
