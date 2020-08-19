@@ -16,7 +16,7 @@
 		<h3>Company {{person.company.name}}</h3>
 
 		Users
-		<h2 v-for="u in users">{{u.username}}</h2>
+		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">{{u.username}}</h2>
 	</div>
 	
 
@@ -30,6 +30,11 @@
 		
 		let app = new Vue({
 			el: '#app',
+			methods:{
+				viewBio: function(user){
+					this.person = user
+				}
+			},
 			data: {
 				person : {
 						"id": 1,
@@ -57,6 +62,13 @@
 					]	
 				}	
 		})
+		// function viewBio(h2){
+		// 	let id = h2.dataset.id;
+		// 	app.person = app.users[id-1]
+		// 	console.log(id)
+
+
+		// }
 
 	</script>
 </body>
