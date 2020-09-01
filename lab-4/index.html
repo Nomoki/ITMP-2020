@@ -57,6 +57,12 @@
 							this.correct()
 						}else{
 							this.incorrect()
+							if(this.score <= 0){
+								this.score = 0
+							}
+							if(this.time <= 0){
+								this.time = 0
+							}
 						}
 					}
 					
