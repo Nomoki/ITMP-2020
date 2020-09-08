@@ -46,7 +46,7 @@
 			return Math.floor(Math.random()*100%shift)+start
 		}
 		
-		let nextfruit = 5
+		let nextfruit = 2
 		let isRightArrow = 1
 		let speed = 1000
 		let app = new Vue({
@@ -59,7 +59,8 @@
 				score:0,
 				fruits:[
 					{id:1,type:'red',pst:5,run:true,step:1},
-					{id:2,type:'yellow',pst:2,run:true,step:1},
+					{id:2,type:'yellow',pst:3,run:true,step:1},
+					
 					
 					
 				]
@@ -71,7 +72,6 @@
 					}else{
 						this.isRightArrow = 0
 					}
-					console.log(this.isRightArrow)
 				},
 			},
 			computed:{},
@@ -86,6 +86,7 @@
 						if (this.fruits[f].pst == 10) {
 							if(this.isRightArrow == 1){
 								this.fruits[f].step = 3
+
 							}
 							else{
 								this.fruits[f].step = 1
@@ -93,6 +94,24 @@
 						}
 						if(this.fruits[f].pst == 13 && this.fruits[f].type == "yellow"){
 							this.score++
+
+						}else if (this.fruits[f].pst == 11 && this.fruits[f].type == "red"){
+							this.score++
+
+						}if(this.fruits[f].pst == 13 && this.fruits[f].type == "red"){
+							this.play = false
+							clearInterval(playing)
+						
+						}else if (this.fruits[f].pst == 11 && this.fruits[f].type == "yellow"){
+							this.play = false
+							clearInterval(playing)
+
+						}if(this.fruits[f].pst == 16){
+							this.fruits[f].run = false
+
+						}else if (this.fruits[f].pst == 12){
+							this.fruits[f].run = false
+
 						}
 				
 					}
