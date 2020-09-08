@@ -34,7 +34,7 @@
 			<div v-if="play" class="btn" id="toggle" @click = "rot()">
 				Toggle
 			</div>
-			<div v-if="!play" class="btn" id="endgame"> 
+			<div v-if="!play" class="btn" id="endgame" onclick = "re()"> 
 				Ene Game
 			</div>
 		</section>
@@ -73,8 +73,12 @@
 						this.isRightArrow = 0
 					}
 				},
+				
+			
 			},
+			
 			computed:{},
+			
 			watch:{
 				turn: function(x){
 					let count = this.fruits.length
@@ -121,6 +125,9 @@
 			}
 		})
 		let playing = setInterval(function(){app.turn++},speed)
+		function re(){
+			window.location.reload();
+		}
 	</script>
 </body>
 </html>
